@@ -7,12 +7,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.developerfromjokela.testaustimeintellij.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.developerfromjokela.testaustimeintellij.services.MyProjectService"/>
+        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.services.TestausTimeApplicationService"/>
+        <projectService serviceImplementation="fi.testaustime.plugin_intellij.services.TestausTimeProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.developerfromjokela.testaustimeintellij.listeners.MyProjectManagerListener"
+        <listener class="fi.testaustime.plugin_intellij.listeners.TestausTimeProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

@@ -1,4 +1,4 @@
-package com.github.developerfromjokela.testaustimeintellij
+package fi.testaustime.plugin_intellij
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
@@ -7,7 +7,7 @@ import org.jetbrains.annotations.PropertyKey
 @NonNls
 private const val BUNDLE = "messages.MyBundle"
 
-object MyBundle : DynamicBundle(BUNDLE) {
+object TestausTimeBundle : DynamicBundle(BUNDLE) {
 
     @Suppress("SpreadOperator")
     @JvmStatic
