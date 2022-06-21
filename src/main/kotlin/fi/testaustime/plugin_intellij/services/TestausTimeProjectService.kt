@@ -69,6 +69,7 @@ class TestausTimeProjectService(private val project: Project) {
                                 )).execute()
                                 println(resp.message)
                                 println(resp.code)
+                                println(resp.body?.string())
                             }
                         }
                     }
@@ -80,7 +81,7 @@ class TestausTimeProjectService(private val project: Project) {
                 println(e.message)
             }
 
-        }, 0, 5, TimeUnit.SECONDS)
+        }, 0, 30, TimeUnit.SECONDS)
         println("ScheduledPinger registered!")
     }
 }
