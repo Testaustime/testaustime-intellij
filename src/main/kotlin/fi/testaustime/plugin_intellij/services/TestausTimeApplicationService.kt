@@ -7,5 +7,6 @@ class TestausTimeApplicationService {
     init {
         println(TestausTimeBundle.message("applicationService"))
         println("Begin")
+
     }
 }

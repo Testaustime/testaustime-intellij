@@ -1,14 +1,20 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.developerfromjokela.testaustimeintellij</id>
-    <name>testaustime-intellij</name>
+    <id>fi.testaustime.plugin_intellij</id>
+    <name>Testaustime</name>
     <vendor>developerfromjokela</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.services.TestausTimeApplicationService"/>
+        <applicationConfigurable parentId="tools" instance="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
+                                 id="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
+                                 displayName="Testaustime Settings"/>
+        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.configuration.TestausTimeSettingsState"/>
         <projectService serviceImplementation="fi.testaustime.plugin_intellij.services.TestausTimeProjectService"/>
+        <notificationGroup id="TestausTime Notifications"
+                           displayType="BALLOON"
+                           key="fi.testaustime.intellij.notification"/>
     </extensions>
 
     <applicationListeners>
