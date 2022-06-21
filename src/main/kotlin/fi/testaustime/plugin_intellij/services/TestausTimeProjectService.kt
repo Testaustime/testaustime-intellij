@@ -3,6 +3,7 @@ package fi.testaustime.plugin_intellij.services
 import com.intellij.ide.DataManager
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.application.ApplicationInfo
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.util.PsiUtilBase
@@ -23,17 +24,17 @@ class TestausTimeProjectService(private val project: Project) {
     private var scheduledPingTask: ScheduledFuture<*>? = null;
 
     init {
-        println(TestausTimeBundle.message("projectService", project.name))
+        Logger.getInstance("#Testaustime").debug(TestausTimeBundle.message("projectService", project.name))
         startScheduledPinger();
     }
 
     fun terminateService() {
-        println("Service terminated")
+        Logger.getInstance("#Testaustime").debug("Service terminated")
         scheduledPingTask?.cancel(true)
     }
 
     private fun startScheduledPinger() {
-        println("Call for schedule ping registration")
+        Logger.getInstance("#Testaustime").debug("Call for schedule ping registration")
         if (scheduledPingTask != null) return
         val settings = TestausTimeSettingsState.instance;
         scheduledPingTask = AppExecutorUtil.getAppScheduledExecutorService().scheduleWithFixedDelay({
@@ -67,21 +68,21 @@ class TestausTimeProjectService(private val project: Project) {
                                     IDEName = appName,
                                     host = hostname
                                 )).execute()
-                                println(resp.message)
-                                println(resp.code)
-                                println(resp.body?.string())
+                                Logger.getInstance("#Testaustime").debug(resp.message)
+                                Logger.getInstance("#Testaustime").debug(resp.code.toString())
+                                Logger.getInstance("#Testaustime").debug(resp.body?.string())
                             }
                         }
                     }
                 }
                 dataContext.onError { err ->
-                    println(err)
+                    Logger.getInstance("#Testaustime").error(err)
                 }
             } catch (e: Exception) {
                 println(e.message)
             }
 
         }, 0, 30, TimeUnit.SECONDS)
-        println("ScheduledPinger registered!")
+        Logger.getInstance("#Testaustime").debug("ScheduledPinger registered!")
     }
 }
