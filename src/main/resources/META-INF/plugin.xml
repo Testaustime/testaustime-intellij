@@ -6,6 +6,17 @@
 
     <depends>com.intellij.modules.platform</depends>
 
+    <description>
+        <![CDATA[
+      Testaustime extension for IntelliJ platorms.
+
+      Testaustime is a time tracking platform, by Testausserveri.
+    ]]>
+    </description>
+
+    <vendor url="https://testaustime.fi">Testaustime Homepage</vendor>
+
+
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable parentId="tools" instance="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
                                  id="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
