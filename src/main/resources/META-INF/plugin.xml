@@ -2,8 +2,6 @@
 <idea-plugin>
     <id>fi.testaustime.plugin_intellij</id>
     <name>Testaustime</name>
-    <vendor>developerfromjokela</vendor>
-
     <depends>com.intellij.modules.platform</depends>
 
     <description>
