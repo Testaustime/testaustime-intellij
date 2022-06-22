@@ -4,6 +4,7 @@
     <name>Testaustime</name>
     <depends>com.intellij.modules.platform</depends>
 
+    <idea-version since-build="203"/>
     <description>
         <![CDATA[
 Testaustime is the ultimate tool for tracking time of your coding sessions. 
