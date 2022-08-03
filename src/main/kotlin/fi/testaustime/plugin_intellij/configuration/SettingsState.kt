@@ -10,21 +10,21 @@ import org.jetbrains.annotations.Nullable
 
 
 @State(name = "fi.testaustime.plugin_intellij.configuration.TestausTimeSettingsState", storages = [Storage("TestausTimePlugin.xml")])
-class TestausTimeSettingsState : PersistentStateComponent<TestausTimeSettingsState> {
+class SettingsState : PersistentStateComponent<SettingsState> {
     var apiBaseUrl = "https://api.testaustime.fi"
     var authToken = ""
 
     @Nullable
-    override fun getState(): TestausTimeSettingsState {
+    override fun getState(): SettingsState {
         return this
     }
 
-    override fun loadState(@NotNull state: TestausTimeSettingsState) {
+    override fun loadState(@NotNull state: SettingsState) {
         XmlSerializerUtil.copyBean(state, this)
     }
 
     companion object {
-        val instance: TestausTimeSettingsState
-            get() = ApplicationManager.getApplication().getService(TestausTimeSettingsState::class.java)
+        val instance: SettingsState
+            get() = ApplicationManager.getApplication().getService(SettingsState::class.java)
     }
 }

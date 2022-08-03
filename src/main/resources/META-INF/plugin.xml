@@ -4,7 +4,6 @@
     <name>Testaustime</name>
     <depends>com.intellij.modules.platform</depends>
 
-    <idea-version since-build="203"/>
     <description>
         <![CDATA[
 Testaustime is the ultimate tool for tracking time of your coding sessions. 
@@ -16,18 +15,21 @@ Show the world how dedicated you are to your projects, now available for Intelli
 
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable parentId="tools" instance="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
-                                 id="fi.testaustime.plugin_intellij.configuration.IntellijSettingConfigurable"
-                                 displayName="Testaustime Settings"/>
-        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.configuration.TestausTimeSettingsState"/>
-        <projectService serviceImplementation="fi.testaustime.plugin_intellij.services.TestausTimeProjectService"/>
-        <notificationGroup id="TestausTime Notifications"
+        <applicationConfigurable parentId="tools" instance="fi.testaustime.plugin_intellij.configuration.ConfigurableSettings"
+                                 id="fi.testaustime.plugin_intellij.configuration.ConfigurableSettings"
+                                 key="name" bundle="messages.TestaustimeBundle"/>
+        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.services.TestaustimeApplicationService"/>
+        <applicationService serviceImplementation="fi.testaustime.plugin_intellij.configuration.SettingsState"/>
+        <projectService serviceImplementation="fi.testaustime.plugin_intellij.services.TestaustimeProjectService"/>
+        <notificationGroup displayType="BALLOON" id="testaustime.info"
+                           key="notificationGroup.information" bundle="messages.TestaustimeBundle"/>
+        <notificationGroup id="testaustime.warnings"
                            displayType="BALLOON"
-                           key="fi.testaustime.intellij.notification"/>
+                           key="notificationGroup.warnings" bundle="messages.TestaustimeBundle"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="fi.testaustime.plugin_intellij.listeners.TestausTimeProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="fi.testaustime.plugin_intellij.listeners.TestaustimeServiceListener" topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="fi.testaustime.plugin_intellij.listeners.TestaustimeServiceListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

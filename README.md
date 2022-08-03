@@ -1,37 +1,29 @@
 # Testaustime IntelliJ Plugin
 
 ![Build](https://github.com/developerfromjokela/testaustime-intellij/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+[![Version](https://img.shields.io/jetbrains/plugin/v/19408.svg)](https://plugins.jetbrains.com/plugin/19408)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/19408.svg)](https://plugins.jetbrains.com/plugin/19408)
+---
 
 <!-- Plugin description -->
 Testaustime is the ultimate tool for tracking time of your coding sessions. Show the world how dedicated you are to your projects, now available for IntelliJ IDEs!
 <!-- Plugin description end -->
 
 ## Installation
+> **Note**  
+> Here from [testaustime.fi](https://testaustime.fi)? You can skip steps 2 and 5! 
 
-- Using IDE built-in plugin system:
+1. Install the Testaustime IntelliJ Plugin
+    - Using the IDE's built-in plugin system
+      - <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Testaustime"</kbd> > <kbd>Install Plugin</kbd>
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Testaustime"</kbd> >
-  <kbd>Install Plugin</kbd>
-  
-- Manually:
+    - Manually:
+      1. Download the [latest release](https://github.com/developerfromjokela/testaustime-intellij/releases/latest) and install it manually using
+      2. <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
-  Download the [latest release](https://github.com/developerfromjokela/testaustime-intellij/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
-
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+2. <sup>(Optional)</sup> Set your Testaustime API endpoint
+    -  <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Testaustime Settings</kbd> > <kbd>Testaustime API base URL</kbd>
+3. Set your Testaustime API token
+   - <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Testaustime Settings</kbd> > <kbd>Testaustime Authentication token</kbd>
+4. Start coding!
+5. View your stats on your favourite Testaustime front-end!
