@@ -1,22 +1,17 @@
-## Version 0.2.0
+# testaustime-intellij Changelog
+All notable changes to this project will be documented in this file.
 
-Version 0.2.0 comes with numerous small quality-of-life
-improvements and fixes.
-- Renamed some elements to align with the Testaustime naming style.
-    - The settings page is now at <kbd>Settings</kbd> > <kbd>Tools</kbd> > <kbd>Testaustime</kbd>
-    - All messages that previously used the incorrect capitalisation, TestausTime,
-      have been updated to the correct capitalisation.
-- Added input verification to the settings page.
-    - The settings page will now notify the user of incorrect URLs or invalid tokens. It will
-      not be possible to apply changes to settings unless both the API base URL and API token
-      are valid. A blank token is allowed, however, to temporarily disable the API.
-- Fixed multi-project tracking
-    - Previously, if multiple projects were open, the plugin would
-      only send heartbeats to the API for one project, and it would send
-      disproportionally many of them. This is now fixed.
-- Improved notifications
-    - Notifications are now grouped into Testaustime Information and Testaustime Warnings.
-      These may be adjusted in the IDE's notification settings.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-> Warning  
-> Changelog unavailable for versions below 0.2.0.
+## [Unreleased]
+
+## [0.2.0] - 2022-08-04
+
+### Added
+- Input verification on the settings page.
+- Project-level Testaustime notifications.
+### Changed
+- Improved some English messages.
+- Fixed tracking when multiple projects are open.
+- Split notifications into Testaustime Information and Testaustime Warnings.
