@@ -2,7 +2,7 @@
 
 # testaustime-intellij Changelog
 
-## 0.2.1
+## [UNRELEASED]
 ### Added
 - Input validation
 - Code optimisation
