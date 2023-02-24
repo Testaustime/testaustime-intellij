@@ -67,9 +67,9 @@ class TestaustimeApplicationService {
 
         try {
             val client = TestaustimeAPIClient(settings.apiBaseUrl, settings.authToken)
-            val ctx = ContextInformation.getDataContext() ?: return;
 
             ApplicationManager.getApplication().invokeLater({
+                val ctx = ContextInformation.getDataContext() ?: return@invokeLater;
                 val project = ctx.getData(CommonDataKeys.PROJECT)
                 project ?: return@invokeLater
 
