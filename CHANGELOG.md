@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Project name is now correctly displayed
+  for projects in directories with different names.
+
+### Changed
+- Coding time no longer increases while inactive.
+- Hostname now works regardless of DNS settings.\*
+
+*Works on Windows, macOS, and any OS with `gethostname()`.
+
 ## [0.2.0] - 2022-08-04
 
 ### Added
