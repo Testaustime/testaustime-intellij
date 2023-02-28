@@ -7,11 +7,11 @@ plugins {
     // Java support
     id("java")
     // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.7.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.10"
     // Gradle IntelliJ Plugin
-    id("org.jetbrains.intellij") version "1.7.0"
+    id("org.jetbrains.intellij") version "1.13.0"
     // Gradle Changelog Plugin
-    id("org.jetbrains.changelog") version "1.3.1"
+    id("org.jetbrains.changelog") version "2.0.0"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
 }
@@ -20,7 +20,8 @@ group = properties("pluginGroup")
 version = properties("pluginVersion")
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.kstruct:gethostname4j:1.0.0")
 }
 
 // Configure project's dependencies
@@ -71,7 +72,7 @@ tasks {
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
-        untilBuild.set(properties("pluginUntilBuild"))
+        // untilBuild.set(properties("pluginUntilBuild"))
 
         // Extract the <!-- Plugin description --> section from README.md and provide for the plugin's manifest
         pluginDescription.set(
