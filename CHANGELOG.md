@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.1]
 
 ### Changed
-- Fix build compatibility
+- Fixed the plugin not working with some IntelliJ versions.
+- Sealed a small memory leak with settings validation.
 
 ## [0.3.0]
 
