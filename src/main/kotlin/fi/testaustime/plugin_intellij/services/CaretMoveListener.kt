@@ -15,6 +15,7 @@ class CaretMoveListener(service: TestaustimeProjectService) : com.intellij.opena
     }
 
     init {
+        EditorFactory.getInstance().allEditors.forEach { it.caretModel.addCaretListener(this) }
         EditorFactory.getInstance().addEditorFactoryListener(object : EditorFactoryListener {
             override fun editorCreated(event: EditorFactoryEvent) {
                 event.editor.caretModel.addCaretListener(this@CaretMoveListener)
