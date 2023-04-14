@@ -21,6 +21,8 @@ Show the world how dedicated you are to your projects, now available for Intelli
         <applicationService serviceImplementation="fi.testaustime.plugin_intellij.services.TestaustimeApplicationService"/>
         <applicationService serviceImplementation="fi.testaustime.plugin_intellij.configuration.SettingsState"/>
         <projectService serviceImplementation="fi.testaustime.plugin_intellij.services.TestaustimeProjectService"/>
+        <postStartupActivity implementation="fi.testaustime.plugin_intellij.activity.ProjectStartupActivity" />
+        <preloadingActivity implementation="fi.testaustime.plugin_intellij.activity.AppPreloadingActivity" />
         <notificationGroup displayType="BALLOON" id="testaustime.info"
                            key="notificationGroup.information" bundle="messages.TestaustimeBundle"/>
         <notificationGroup id="testaustime.warnings"

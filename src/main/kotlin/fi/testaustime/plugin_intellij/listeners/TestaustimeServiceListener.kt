@@ -9,16 +9,10 @@ import fi.testaustime.plugin_intellij.services.TestaustimeProjectService
 
 internal class TestaustimeServiceListener : AppLifecycleListener, ProjectManagerListener {
 
-    override fun appStarted() {
-        service<TestaustimeApplicationService>();
-    }
+    // See fi.testaustime.plugin_intellij.activity for service initialization
 
     override fun appClosing() {
         service<TestaustimeApplicationService>().terminateService();
-    }
-
-    override fun projectOpened(project: Project) {
-        project.service<TestaustimeProjectService>()
     }
 
     override fun projectClosingBeforeSave(project: Project) {
