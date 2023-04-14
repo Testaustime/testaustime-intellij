@@ -1,7 +1,9 @@
 package fi.testaustime.plugin_intellij.configuration
 
+import com.intellij.openapi.Disposable
 import com.intellij.openapi.ui.ComponentValidator
 import com.intellij.openapi.ui.ValidationInfo
+import com.intellij.openapi.util.Disposer
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
@@ -16,7 +18,7 @@ import javax.swing.JComponent
 import javax.swing.JPanel
 
 
-class SettingsComponent {
+class SettingsComponent: Disposable {
     fun validate(): Boolean {
         var valid = baseUrlText.inputVerifier?.verify(baseUrlText) ?: false;
         valid = valid and (authTokenText.inputVerifier?.verify(authTokenText) ?: false);
@@ -35,7 +37,7 @@ class SettingsComponent {
             .panel
 
         run {
-            val validator = ComponentValidator { }.withValidator(Supplier {
+            val validator = ComponentValidator(this).withValidator(Supplier {
                 if (baseUrlText.text.endsWith("/")) {
                     return@Supplier ValidationInfo(message("settings.apiBaseURL.noSlash"), baseUrlText)
                 } else {
@@ -59,7 +61,7 @@ class SettingsComponent {
 
 
         run {
-            val validator = ComponentValidator { }.withValidator(Supplier {
+            val validator = ComponentValidator(this).withValidator(Supplier {
                 if (authTokenText.text.isEmpty()) {
                     return@Supplier ValidationInfo(message("settings.apiToken.needToken"), authTokenText).asWarning();
                 }
@@ -108,4 +110,8 @@ class SettingsComponent {
         set(newText) {
             authTokenText.text = newText
         }
+
+    override fun dispose() {
+
+    }
 }

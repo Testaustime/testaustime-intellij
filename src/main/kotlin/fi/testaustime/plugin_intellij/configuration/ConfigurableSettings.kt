@@ -2,6 +2,7 @@ package fi.testaustime.plugin_intellij.configuration
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.util.Disposer
 import fi.testaustime.plugin_intellij.TestaustimeBundle
 import fi.testaustime.plugin_intellij.services.TestaustimeApplicationService
 import org.jetbrains.annotations.Nullable
@@ -43,6 +44,7 @@ class ConfigurableSettings : Configurable {
     }
 
     override fun disposeUIResources() {
+        settingsComponent?.let { Disposer.dispose(it) }
         settingsComponent = null
     }
 
