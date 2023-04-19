@@ -10,7 +10,10 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.roots.ModuleRootManager
 import com.intellij.psi.util.PsiUtilBase
-import com.kstruct.gethostname4j.Hostname
+import com.sun.jna.Library
+import com.sun.jna.Native
+import com.sun.jna.Platform
+import com.sun.jna.platform.win32.Kernel32Util
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.concurrency.await
 
@@ -56,9 +59,21 @@ object ContextInformation {
         }
     }
 
-    fun getHostname(): String? = try {
-        Hostname.getHostname()
-    } catch (e: RuntimeException) {
-        null
+    interface UnixCLibrary : Library {
+        companion object {
+            val INSTANCE: UnixCLibrary = Native.load("c", UnixCLibrary::class.java)
+        }
+
+        fun gethostname(name: ByteArray, len: Int): Int
+    }
+
+    fun getHostname(): String? {
+        return if (Platform.isWindows()) {
+            Kernel32Util.getComputerName();
+        } else {
+            val buffer = ByteArray(4097)
+            val result = UnixCLibrary.INSTANCE.gethostname(buffer, buffer.size)
+            if (result == 0) String(buffer).trim { it <= ' ' } else null
+        }
     }
 }
