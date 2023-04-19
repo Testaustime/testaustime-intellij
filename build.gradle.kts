@@ -14,6 +14,8 @@ plugins {
     id("org.jetbrains.changelog") version "2.0.0"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    // Gradle Shadow Plugin
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = properties("pluginGroup")
@@ -21,7 +23,6 @@ version = properties("pluginVersion")
 
 dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.kstruct:gethostname4j:1.0.0")
 }
 
 // Configure project's dependencies
@@ -65,6 +66,11 @@ tasks {
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = it
         }
+    }
+
+    // Relocate dependencies to avoid conflicts with other plugins
+    shadowJar {
+        relocate("com.google.gson", "fi.testaustime.plugin_intellij.gson")
     }
 
     wrapper {
