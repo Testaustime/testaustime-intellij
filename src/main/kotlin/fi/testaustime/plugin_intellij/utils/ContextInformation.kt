@@ -3,7 +3,7 @@ package fi.testaustime.plugin_intellij.utils
 import com.intellij.ide.DataManager
 import com.intellij.openapi.actionSystem.CommonDataKeys.EDITOR
 import com.intellij.openapi.actionSystem.DataContext
-import com.intellij.openapi.application.ApplicationInfo
+import com.intellij.openapi.application.ApplicationNamesInfo
 import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
@@ -55,7 +55,7 @@ object ContextInformation {
 
     fun getApplicationName(): String {
         return ReadAction.compute<String, Throwable> {
-            ApplicationInfo.getInstance().fullApplicationName
+            ApplicationNamesInfo.getInstance().fullProductName
         }
     }
 
