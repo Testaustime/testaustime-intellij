@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- The editor name is now reported without the version number,
+  e.g. `IntelliJ IDEA` instead of `IntelliJ IDEA 2025.2`.
+
+### Removed
+- IDE version `2022.2` is no longer supported, at least `2022.3` is now required.
+
 ## [0.3.1]
 
 ### Changed
